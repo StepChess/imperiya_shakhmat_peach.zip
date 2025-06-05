@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Империя Шахмат</title>
+  <link href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" rel="stylesheet">
+  <style>
+    body { margin: 0; font-family: sans-serif; background: #ffe5b4; }
+    .slide { display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; padding: 2rem; text-align: center; background-color: #ffe5b4; }
+    .slide h1, .slide h2 { margin-bottom: 1rem; }
+    .slide p { max-width: 600px; }
+    .bg-cover { background-size: cover; background-position: center; color: white; }
+    .slide-1 { background-image: url('https://images.unsplash.com/photo-1616900981745-6e41b91d5e45?auto=format&fit=crop&w=1400&q=80'); background-repeat: no-repeat; }
+    .slide-4 { animation: fadeIn 2s ease-in; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .board-container { margin-top: 1rem; }
+    #board { width: 300px; margin: auto; }
+    .btn { background: #000; color: #fff; border: none; padding: 0.75rem 1.5rem; margin-top: 1rem; cursor: pointer; border-radius: 8px; }
+  </style>
+</head>
+<body>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide slide slide-1 bg-cover">
+        <h1>Империя Шахмат</h1>
+        <h2>Где рождаются чемпионы</h2>
+      </div>
+      <div class="swiper-slide slide">
+        <h2>Наша шахматная школа</h2>
+        <p>Для начинающих и профессионалов. Цены от 600 до 800 рублей, в зависимости от тренера. Онлайн и офлайн обучение.</p>
+      </div>
+      <div class="swiper-slide slide">
+        <h2>Почему выбирают нас?</h2>
+        <p>Опытные тренеры, современные методики, индивидуальные и групповые занятия, подготовка к турнирам.</p>
+      </div>
+      <div class="swiper-slide slide slide-4">
+        <h2>Цены</h2>
+        <p>600₽ — для начинающих. 800₽ — для тех, кто хочет быстрый прогресс или имеет разряд. Все занятия проходят в группах.</p>
+      </div>
+      <div class="swiper-slide slide">
+        <h2>Шахматные задачи и турниры</h2>
+        <div class="board-container">
+          <div id="board"></div>
+        </div>
+        <p>3 логические задачи. Бесплатно для занимающихся, платно — по подписке. Проводим турниры с денежными призами для подписчиков.</p>
+        <button class="btn" onclick="window.open('https://t.me/yourchannel', '_blank')">Написать нам</button>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css">
+  <script>
+    const swiper = new Swiper('.swiper', {
+      loop: false,
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+    const board = Chessboard('board', {
+      position: 'r1bqkbnr/pppppppp/n7/8/8/8/PPPPPPPP/RNBQKBNR',
+      draggable: false
+    });
+  </script>
+</body>
+</html>
